@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS config (
+      id BIGSERIAL PRIMARY KEY,
+      users_count INTEGER NOT NULL
+);
+
+INSERT INTO config (users_count)
+SELECT 3
+    WHERE NOT EXISTS (SELECT 1 FROM config);
